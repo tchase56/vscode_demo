@@ -7,7 +7,7 @@ RUN conda install -c anaconda scikit-learn
 RUN conda install -c anaconda psycopg2
 RUN conda install -c anaconda boto3
 
-# Install R
+# Install R and some R libraries 
 RUN apt-get update && apt-get install -y r-base
 RUN R -e "install.packages('tidyverse',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('lubridate',dependencies=TRUE, repos='http://cran.rstudio.com/')"
