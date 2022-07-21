@@ -9,6 +9,9 @@ RUN conda install -c anaconda boto3=1.24.28
 RUN conda install -c conda-forge matplotlib=3.5.2
 RUN conda install -c anaconda seaborn=0.11.2
 RUN conda install -c anaconda sqlalchemy=1.4.39
+RUN conda install -c anaconda numpy=1.22.3
+RUN conda install -c anaconda pandas=1.4.3
+RUN conda install -c anaconda ipykernel=6.9.1
 
 # Install R and some R libraries 
 RUN apt-get update && apt-get install -y r-base
