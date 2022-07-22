@@ -1,0 +1,25 @@
+# R Notebook
+
+## Load Libraries
+```{r, message=FALSE}
+library(dplyr)
+library(docstring)
+source("/root/vscode_demo/R/R_functions.R")
+```
+
+## Load Wine Data
+```{r}
+# Read the wine-quality csv file from the URL
+csv_url <- 'http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv'
+data <- read.csv(csv_url, sep=';')
+head(data)
+```
+
+## Plot Correlation Matrix for the Data
+```{r}
+# Correlation analysis
+calculate_andPlot_correlation(data)
+```
+
+```{r}
+```

@@ -11,7 +11,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
-from python_functions import eval_metrics
+from python_functions import eval_metrics, plot_train_test_metrics
 
 if __name__ == "__main__":
     np.random.seed(40)
@@ -36,11 +36,19 @@ if __name__ == "__main__":
     lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
     lr.fit(train_x, train_y)
 
-    predicted_qualities = lr.predict(test_x)
-
-    (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)
+    train_predictions = lr.predict(train_x)
+    test_predictions = lr.predict(test_x)
+    (rmse_train, mae_train, r2_train) = eval_metrics(train_y, train_predictions)
+    (rmse_test, mae_test, r2_test) = eval_metrics(test_y, test_predictions)
 
     print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
-    print("  RMSE: %s" % rmse)
-    print("  MAE: %s" % mae)
-    print("  R2: %s" % r2)
+    print("  Train RMSE: %s" % rmse_train)
+    print("  Train MAE: %s" % mae_train)
+    print("  Train R2: %s" % r2_train)
+    print("  Test RMSE: %s" % rmse_test)
+    print("  Test MAE: %s" % mae_test)
+    print("  Test R2: %s" % r2_test)
+
+    # Plot Visualization of Metrics
+    df = plot_train_test_metrics(rmse_train, mae_train, r2_train, rmse_test, mae_test, r2_test)
+    print(df)

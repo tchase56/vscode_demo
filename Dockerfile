@@ -15,7 +15,7 @@ RUN conda install -c anaconda ipykernel=6.9.1
 RUN conda install -c anaconda typing=3.10.0.0
 
 # Install R and some R libraries 
-RUN apt-get update && apt-get install -y r-base
+RUN apt-get update && apt-get install -y r-base && apt-get install pandoc
 RUN R -e "install.packages('remotes', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('tidyverse',dependencies=TRUE, version = '1.3.2', repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('lubridate',dependencies=TRUE, version = '1.8.0', repos='http://cran.rstudio.com/')"
@@ -26,3 +26,6 @@ RUN R -e "remotes::install_version('rjson',dependencies=TRUE, version = '0.2.21'
 RUN R -e "remotes::install_version('logger',dependencies=TRUE, version = '0.2.2', repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('optparse',dependencies=TRUE, version = '1.7.1', repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('languageserver',dependencies=TRUE, version = '0.3.13', repos='http://cran.rstudio.com/')"
+RUN R -e "remotes::install_version('rmarkdown', dependencies=TRUE, version='2.14', repos='http://cran.rstudio.com/')"
+RUN R -e "remotes::install_version('ggcorrplot', dependencies=TRUE, version='0.1.3', repos='http://cran.rstudio.com/')"
+RUN R -e "remotes::install_version('docstring', dependencies=TRUE, version='1.0.0', repos='http://cran.rstudio.com/')"
