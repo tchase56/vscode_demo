@@ -12,6 +12,7 @@ RUN conda install -c anaconda sqlalchemy=1.4.39
 RUN conda install -c anaconda numpy=1.22.3
 RUN conda install -c anaconda pandas=1.4.3
 RUN conda install -c anaconda ipykernel=6.9.1
+RUN conda install -c anaconda typing=3.10.0.0
 
 # Install R and some R libraries 
 RUN apt-get update && apt-get install -y r-base
