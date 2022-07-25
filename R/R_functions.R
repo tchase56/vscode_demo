@@ -5,11 +5,11 @@ calculate_andPlot_correlation <- function(data_df){
     #' Corrlation
     #'
     #' Calculates the corrlation matrix of the data and creates visualization
-    #'
+    #' 
     #' @param data_df input tibble used to create correlation matrix
     
     # Correlation matrix
-    corr <- round(cor(data), 1)
+    corr <- round(cor(data_df), 1)
     print(head(corr))
 
     # Plot

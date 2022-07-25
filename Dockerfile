@@ -29,3 +29,4 @@ RUN R -e "remotes::install_version('languageserver',dependencies=TRUE, version =
 RUN R -e "remotes::install_version('rmarkdown', dependencies=TRUE, version='2.14', repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('ggcorrplot', dependencies=TRUE, version='0.1.3', repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('docstring', dependencies=TRUE, version='1.0.0', repos='http://cran.rstudio.com/')"
+RUN R -e "remotes::install_github('ManuelHentschel/vscDebugger')"
