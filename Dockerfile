@@ -15,7 +15,7 @@ RUN conda install -c anaconda ipykernel=6.9.1
 RUN conda install -c anaconda typing=3.10.0.0
 
 # Install R and some R libraries 
-RUN apt-get update && apt-get install -y r-base && apt-get install pandoc
+RUN apt-get update && apt-get install -y r-base && apt-get install -y pandoc
 RUN R -e "install.packages('remotes', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('tidyverse',dependencies=TRUE, version = '1.3.2', repos='http://cran.rstudio.com/')"
 RUN R -e "remotes::install_version('lubridate',dependencies=TRUE, version = '1.8.0', repos='http://cran.rstudio.com/')"
