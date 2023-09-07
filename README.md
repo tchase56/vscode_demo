@@ -28,7 +28,9 @@ demo of some useful vscode features
 
 ### Option 1: Conda
 
-1. Install Conda
+1. Create Conda Environment
+    * `conda create --name vscode_demo python=3.10.12`
+2. Install the necessary 
 
 ### Option 2: Docker
 
