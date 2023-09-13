@@ -11,13 +11,17 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 * Python
     * Running Python Script
     * Running IPython Notebook
-    * Debugging Pyonth Script
+    * Debugging Python Script
     * Debugging IPython Notebook
 * Source Control Extension
+    * Terminal commands
+    * User interface
 * SQL
-    * SQLite
-    * SQLite Viewer
+    * Set up SQL DB
+    * View DB from VSCode
 * Github Copilot
+    * Setup instructions
+    * Copilot examples
 * Tips and Tricks
 * References
 
@@ -35,12 +39,12 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Python Section 
         * Python
         * HTML Preview
-    * SQL Section
-        * SQLite
-        * SQLite Viewer
     * For Docker Environment Option
         * Docker
         * Remote-Containers
+    * For SQL
+        * SQLite 
+        * SQLite Viewer
     * For Copilot
         * GitHub Copilot
         * GitHub Copilot Labs
@@ -53,11 +57,14 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 #### Initial Setup
 
-1. Create Conda Environment
+1. Open VSCode
+2. Open a terminal
+    * A terminal can be spawned by dragging from the bottom of the VSCode screen
+2. Create Conda Environment
     * `conda create --name vscode_demo python=3.10.12`
-2. Activate the environment
+3. Activate the environment
     * `conda activate vscode_demo`
-3. Install the necessary python libraries
+4. Install the necessary python libraries
     * `conda install -c anaconda jupyter=1.0.0`
     * `conda install -c anaconda scikit-learn=1.3.0`
     * `conda install -c anaconda sqlalchemy=1.4.39`
@@ -75,16 +82,19 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 #### Attach VSCode to Container Initial Setup
 
-1. Build image from Dockerfile
+1. Open VSCode
+2. Open a terminal
+    * A terminal can be spawned by dragging from the bottom of the VSCode screen
+3. Build image from Dockerfile
     * `docker image build -t vscode_demo_image .`
-2. Build a container from the image
+4. Build a container from the image
     * `docker run -d -t --name vscode_demo_container vscode_demo_image`
-3. Attach VSCode to container
+5. Attach VSCode to container
     * click on the docker extension button 
     * open the containers tab
     * right click on vscode_demo_container and select "attach visual studio code"
-4. Install the necessary VSCode extensions in the container (same as above)
-5. Reconfigure github inside of container
+6. Install the necessary VSCode extensions in the container (same as above)
+7. Reconfigure github inside of container
     * git config
         * `git config user.email "*****"`
         * `git config user.name "****** ******"`
@@ -102,19 +112,22 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 ### Running Python Script
 
 1. Open python/python_script.py from the explorer
+    * Click on the file explorer button
+    * Select VSCODE_DEMO as the home directory of the explorer
+    * Open python_script.py
 
-![Screenshot](images/)
+![Screenshot](images/file_explorer_python_script.png)
 
 2. Make sure VSCode is using the correct form of Python
     * Open .py file 
         * ensure the language Python is chosen in the lower right hand corner of the screen
-        * Click on the python version button in the lower right hand corner of the screen and ensure Conda 3.10.12 is selected
+        * Click on the python version button in the lower right hand corner of the screen and ensure "'vscode_demo':conda" is selected
 
-![Screenshot](images/)
+![Screenshot](images/python_version_script.png)
 
 3. Running the script
     * Using the play button 
-        * When you open a python script there will be a ply button in the upper right hand corner of the screen
+        * When you open a python script there will be a play button in the upper right hand corner of the screen
             * Press this play button to run the script
             * Note: here you cannot use command line args
     * Terminal Commands
@@ -375,5 +388,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * https://medium.com/p/53516ce45266
 2. Configure SQLite for VSCode
     * https://www.google.com/search?q=sqlite+library+vscode&rlz=1C5GCEM_enUS1067US1068&oq=sqlite+library+vscode&aqs=chrome..69i57j33i160.3585j0j7&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:4f8f26c5,vid:JrAiefGNUq8,st:0
+3. Setting up SSH Keychains
+    * https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 
