@@ -15,7 +15,9 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Debugging IPython Notebook
 * Source Control Extension
 * SQL
-    * SQLTools Extension
+    * SQLite
+    * SQLite Viewer
+* Github Copilot
 * Tips and Tricks
 * References
 
@@ -34,13 +36,16 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
         * Python
         * HTML Preview
     * SQL Section
-        * SQLTools
-        * SQLTools PostgresSQL/Redshift Driver
+        * SQLite
+        * SQLite Viewer
     * For Docker Environment Option
         * Docker
         * Remote-Containers
+    * For Copilot
+        * GitHub Copilot
+        * GitHub Copilot Labs
 
-![Screenshot](images/Screenshot%202023-09-07%20at%205.35.35%20PM.png)
+![Screenshot](images/extensions_button.png)
 
 ## Environment Management
 
@@ -217,49 +222,158 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 ## Source Control Extension
 
-1. Terminal Commands
-    * you can do all of your normal git commands through the terminal at the bottom of the screen
-    * stage file
-        * git commit <file>
-    * commiting changes
-        * git commit -m "commit message"
-    * push changes to repository
-        * git push origin <branch>
-
-2.  You can also use the UI to stage and commit more quickly
-    * click on the "source control" extension button on the left side of the window
-    * click on a modified file (highlighted yellow) to see the diffs between the current saved version and the last commit
-        * how the changes are displayed
-            * click on the file in the "source control" extension
-            * The old committed file is on the left, and the saved new version is on the right
-            * Deletions are highlighted in red and additions are highlighted in green
-        * Tip
-            * I find it helpful to double check the diffs before staging to ensure there isn't anything unexpected (from say a cat on your keyboard...)
-        * Python Script
-        * Ipython Notebook
-    * Stage file
-        * click on the "+" button to the right of a file to stage changes
-    * commiting changes
-        * after staging 
-        * type a commit message
-        * then click on the blue "commit" button
-    * push changes to repository
-        * 
-
-
 ### Terminal Commands
+
+1. you can do all of your normal git commands through the terminal at the bottom of the screen
+2. stage file
+    * git commit file_name
+3. commiting changes
+    * git commit -m "commit message"
+4. push changes to repository
+    * git push origin branch_name
+
+![Screenshot](images/)
 
 ### User Interface
 
+1. click on the "source control" extension button on the left side of the window
+
+![Screenshot](images/)
+
+2. click on a modified file (highlighted yellow) to see the diffs between the current saved version and the last commit
+    * how the changes are displayed
+        * click on the file in the "source control" extension
+        * The old committed file is on the left, and the saved new version is on the right
+        * Deletions are highlighted in red and additions are highlighted in green
+    * Tip
+        * I find it helpful to double check the diffs before staging to ensure there isn't anything unexpected (from say a cat on your keyboard...)
+    * Python Script
+    * Ipython Notebook
+
+![Screenshot](images/)
+
+![Screenshot](images/)
+
+3. Stage file
+    * click on the "+" button to the right of a file to stage changes
+
+![Screenshot](images/)
+
+4. commiting changes
+    * after staging 
+    * type a commit message
+    * then click on the blue "commit" button
+
+![Screenshot](images/)
+
+5. push changes to repository
+    * after commiting the "Sync Changes" button will appear
+    * press the "Sync Changes" button to both pull and push commits from the active branch
+
+![Screenshot](images/)
+
+![Screenshot](images/)
+
 ## SQL
 
-### SQLTools Extension
+### Set up SQL DB
+
+1. download sqlite
+    * Download the SQLite extension in VSCode
+    * command+shift+p search and select "Developer: Reload Window"
+    * if another db is selected in the bottom right of VSCode you may need to click that and select SQLite
+2. Create a table in the SQLite DB
+    * Create the table by selecting the first command in mysql.sql, right click, and select "Run Selected Query"
+        * It will prompt you to choose a DB 
+            * choose the db from the repo "mydb.db"
+        * this creates an empty table named "example_table" in the SQLite DB
+    * populate the table by selecting the second command in mysql.sql, right click and select "Run Selected Query"
+3. Query the table we created
+    * query our table by highlighting the third command in mysql.sql, right clicking, and selecting "Run Selected Query"
+
+![Screenshot](images/)
+
+### View DB from VSCode
+
+1. Download the SQLite Viewer extension in VSCode
+    * After setting up our DB and creating the "example_table" table, right click on mydb.db
+        * select "open with..." and then select "sqlite viewer" 
+        * here we can see the details of the table we created
+        * if there were more tables they would all be available here for viewing
+2. This is fairly similar to more complex VSCode DB tools such as the Snowflake extension, or the SQLTools extension
+
+![Screenshot](images/)
+
+## Github Copilot
+
+### Setup Instructions
+
+1. Install the GiHub Copilot extension, and connect to your GitHub
+2. In your GitHub account sign up for the Copilot trial
+    * As of writing the first month is free, then it is $10 a month or $100 per year
+3. Configure the data sharing information for GitHub Copilot
+    * If you are worried about incorporating public code into your repo I suggest not allowing suggestions matching public code
+    * If you are worried about GitHub using your code snippets for training models I suggest you not allow GitHub to use code snippets for product improvement
+4. Install the GitHub Copilot Labs Extension
+
+### Copilot Examples
+
+1. Writing code from a comment
+
+![Screenshot](images/)
+
+2. Automatically generate docstrings
+
+![Screenshot](images/)
+
+3. Translating code in GitHub Copilot Labs
+    * example translating pandas to sql
+
+![Screenshot](images/)
 
 ## Tips and Tricks
+
+1. Hover on a function to reveal the docstring
+
+![Screenshot](images/)
+
+2. Jump to source of function
+    * Hold down command and then click a function
+        * This will open the source file of that function
+3. Jump back to the previous location in the editor
+    * if you have jumpted to a function you can quickly jump back
+        * you can click go -> back 
+        * or you can press "ctr -"
+
+![Screenshot](images/)
+
+4. Type in multiple places at once
+    * type on multiple lines (aligned)
+        * "option+command+uparrow(or downarrow)"
+    * type on multiple lines (not aligned)
+        * "option+click"
+
+![Screenshot](images/)
+
+![Screenshot](images/)
+
+5. Open variables in IPython notebook
+    * Click on the "Variables" button at the top of the notebook
+        * You can see all the variables initialized in the notebook
+    * Click on the button to the left of "results_df" to open the Data Viewer
+
+![Screenshot](images/)
+
+![Screenshot](images/)
+
+
+
 
 # References
 
 1. Introduction to MLFlow for MLOps Part 2: Docker Environment
     * https://medium.com/p/53516ce45266
+2. Configure SQLite for VSCode
+    * https://www.google.com/search?q=sqlite+library+vscode&rlz=1C5GCEM_enUS1067US1068&oq=sqlite+library+vscode&aqs=chrome..69i57j33i160.3585j0j7&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:4f8f26c5,vid:JrAiefGNUq8,st:0
 
 
