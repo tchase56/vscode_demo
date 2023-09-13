@@ -278,15 +278,15 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * type a commit message
     * then click on the blue "commit" button
 
-![Screenshot](images/)
+![Screenshot](images/commit_changes_ui.png)
 
 5. push changes to repository
-    * after commiting the "Sync Changes" button will appear
-    * press the "Sync Changes" button to both pull and push commits from the active branch
+    * click the three dots at the top of the source control extension
+    * select the "push" button
 
-![Screenshot](images/)
+![Screenshot](images/commit_changes_ui.png)
 
-![Screenshot](images/)
+![Screenshot](images/push_changes_ui.png)
 
 ## SQL
 
@@ -295,7 +295,11 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 1. download sqlite
     * Download the SQLite extension in VSCode
     * command+shift+p search and select "Developer: Reload Window"
-    * if another db is selected in the bottom right of VSCode you may need to click that and select SQLite
+    * Open sql/mysql.sql
+    * if another db (anything other than SQLite) is selected in the bottom right of VSCode you may need to click that and select SQLite
+
+![Screenshot](images/sqlite_select.png)
+
 2. Create a table in the SQLite DB
     * Create the table by selecting the first command in mysql.sql, right click, and select "Run Selected Query"
         * It will prompt you to choose a DB 
@@ -305,18 +309,23 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 3. Query the table we created
     * query our table by highlighting the third command in mysql.sql, right clicking, and selecting "Run Selected Query"
 
-![Screenshot](images/)
+![Screenshot](images/sql_query.png)
 
 ### View DB from VSCode
 
 1. Download the SQLite Viewer extension in VSCode
-    * After setting up our DB and creating the "example_table" table, right click on mydb.db
+    * After setting up our DB and creating the "example_table" table, right click on mydb.db in the Explorer window
         * select "open with..." and then select "sqlite viewer" 
         * here we can see the details of the table we created
         * if there were more tables they would all be available here for viewing
 2. This is fairly similar to more complex VSCode DB tools such as the Snowflake extension, or the SQLTools extension
 
-![Screenshot](images/)
+![Screenshot](images/sqlite_viewer.png)
+
+3. Python interface with SQLite DB
+    * by running the read_table_from_db_to_pandas.py script we can see how python pulls the data from the db
+
+![Screenshot](images/sql_alchemy.png)
 
 ## Github Copilot
 
@@ -333,23 +342,35 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 ### Copilot Examples
 
 1. Writing code from a comment
+    * to recreate the results open copilot/copilot_example.py
+        * delete the code under the comment
+        * put cursor to the right of the comment, hit enter, repeatedly hit tab until the function is complete
 
-![Screenshot](images/)
+![Screenshot](images/function_from_comment.png)
+
+![Screenshot](images/df_manipulation_from_comment.png)
 
 2. Automatically generate docstrings
+    * to recreate the results open copilot/copilot_example.py
+        * delete the docstring in the "add_inputs" function
+        * put cursor to the right of the first line in the function, hit enter, repeatedly hit tab until the function is complete
 
-![Screenshot](images/)
+![Screenshot](images/generate_docstring_from_function.png)
 
 3. Translating code in GitHub Copilot Labs
     * example translating pandas to sql
+    * to recreate the translation open copilot/copilot_example.py
+        * highlight the section of code where a dataframe is sorted
+        * click on the GitHub Copilot Labs extension
+        * under the "LANGUAGE TRANSLATION" tab select "sql" for "Translate code into", then select the Ask Copilot button
 
-![Screenshot](images/)
+![Screenshot](images/code_translation.png)
 
 ## Tips and Tricks
 
 1. Hover on a function to reveal the docstring
 
-![Screenshot](images/)
+![Screenshot](images/hover_docstring.png)
 
 2. Jump to source of function
     * Hold down command and then click a function
@@ -358,27 +379,24 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * if you have jumpted to a function you can quickly jump back
         * you can click go -> back 
         * or you can press "ctr -"
-
-![Screenshot](images/)
-
 4. Type in multiple places at once
     * type on multiple lines (aligned)
         * "option+command+uparrow(or downarrow)"
     * type on multiple lines (not aligned)
         * "option+click"
 
-![Screenshot](images/)
+![Screenshot](images/write_multiple_lines_aligned.png)
 
-![Screenshot](images/)
+![Screenshot](images/write_on_multiple_lines.png)
 
 5. Open variables in IPython notebook
     * Click on the "Variables" button at the top of the notebook
         * You can see all the variables initialized in the notebook
     * Click on the button to the left of "results_df" to open the Data Viewer
 
-![Screenshot](images/)
+![Screenshot](images/notebook_variable_explorer.png)
 
-![Screenshot](images/)
+![Screenshot](images/data_viewer_notebook.png)
 
 
 
