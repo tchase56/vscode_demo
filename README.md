@@ -68,10 +68,11 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * `conda install -c anaconda jupyter=1.0.0`
     * `conda install -c anaconda scikit-learn=1.3.0`
     * `conda install -c anaconda sqlalchemy=1.4.39`
-    * `conda install -c anaconda numpy=1.25.2`
-    * `conda install -c anaconda pandas=2.0.3`
+    * `conda install -c anaconda numpy=1.22`
+    * `conda install -c anaconda pandas=1.4.3`
     * `conda install -c anaconda ipykernel=6.25.0`
     * `conda install -c anaconda typing=3.10.0.0`
+    * `conda install -c conda-forge matplotlib=3.7.2`
 
 #### After Setup
 
@@ -121,7 +122,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 2. Make sure VSCode is using the correct form of Python
     * Open .py file 
         * ensure the language Python is chosen in the lower right hand corner of the screen
-        * Click on the python version button in the lower right hand corner of the screen and ensure "'vscode_demo':conda" is selected
+        * Click on the python version button in the lower right hand corner of the screen and ensure "vscode_demo" is selected
 
 ![Screenshot](images/python_version_script.png)
 
@@ -141,21 +142,21 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
         * Plots will not display if a script is ran that contains a plot. 
         * Plots generated in a script must be explicitly saved for later viewing. 
 
-![Screenshot](images/)
+![Screenshot](images/python_script_play.png)
 
-![Screenshot](images/)
+![Screenshot](images/python_run_terminal.png)
 
 ### Running IPython Notebook
 
 1. Open python/python_notebook.ipynb from the explorer
 
-![Screenshot](images/)
+![Screenshot](images/file_explorer_ipython_notebook.png)
 
 2. Make sure Ipython Notebook is using the correct form of Python (Conda 3.10.12)
-    * Click on the python version button in the top right corner of VSCode and select Conda 3.10.12
+    * Click on the python version button in the top right corner of VSCode and select "vscode_demo"
         * Every notebook has a python environment associated with it
 
-![Screenshot](images/)
+![Screenshot](images/set_ipython_notebook_env.png)
 
 3. Running the notebook
     * Running a single cell
@@ -164,25 +165,25 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Running all cells
         * Click the "Run All" button at the top of the notebook
 
-![Screenshot](images/)
+![Screenshot](images/run_single_cell.png)
 
-![Screenshot](images/)
+![Screenshot](images/run_all_cells.png)
 
 4. Display
     * Print statements and plots will display below the cell being run
 
-![Screenshot](images/)
+![Screenshot](images/notebook_display.png)
 
 ### Debugging Python Script
 
 1. Debugger settings
     * Click on the debugger extension button on the left of the window
-    * Add a break point in your code and this will open some additional "BREAKPOINTS" options at the bottom of the debugger windowt
+    * Add a break point in your code and this will open some additional "BREAKPOINTS" options at the bottom of the debugger window
         * to the left of the numbers in the .py file click and a red circle will appear
     * Make sure "Uncaught Exceptions" and "User Uncaught Exceptions" are checked
     * Then remove the breakpoints you used to bring up the breakpoint options (if you don't want the code to stop there)
 
-![Screenshot](images/)
+![Screenshot](images/breakpoint_options.png)
 
 2. Catching a bug placed in imported function
     * Create bug to track
@@ -190,8 +191,12 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Debugging python script
         * Click on the debugger extension on the left side of screen
         * click on the script you want to debug
-        * then click on the blue "Run and Debug" button in the extension
+        * Click the down arrow next to the play button
+            * select "Debug Python File"
         * the debugger opens the problematic file, highlights the section with the issue (in this case an incorrect function name)
+
+![Screenshot](images/error_python_script.png)
+
 3. Variable exploration while debugging
     * After running debugger and while at a breakpoint
     * VARIABLES tab in the debugger extension 
@@ -205,17 +210,14 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Stop debugger
         * Click the stop button at the top of the screen
 
-![Screenshot](images/)
 
-![Screenshot](images/)
+![Screenshot](images/variables_tab_debugger.png)
 
-![Screenshot](images/)
+![Screenshot](images/data_viewer.png)
 
-![Screenshot](images/)
+![Screenshot](images/debug_consol.png)
 
-![Screenshot](images/)
-
-![Screenshot](images/)
+![Screenshot](images/stop_debugger)
 
 ### Debugging IPython Notebook
 
@@ -225,13 +227,15 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Create bug to track
         * in python_functions.py change np.sqrt to np.sqt
     * Debugging IPython Notebook
+        * Run all cells to determine the problematic cell
+            * in this case the third cell fails
         * At the problematic cell click the dropdown by the play button
         * Select "Debug Cell"
         * The debugger opens the problematic file, highlights the section with the issue, and gives you the ability to query through the debugger at this break point (in this case an incorrect function name)
 3. Vairable exploration while debugging
     * follow the instructions for "Variable exploration while debugging" in the "Debugging Python Script" section
 
-![Screenshot](images/)
+![Screenshot](images/debug_cell_of_notebook.png)
 
 ## Source Control Extension
 
@@ -239,38 +243,35 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 1. you can do all of your normal git commands through the terminal at the bottom of the screen
 2. stage file
-    * git commit file_name
+    * `git commit <file_name>`
 3. commiting changes
-    * git commit -m "commit message"
+    * `git commit -m <commit message>`
 4. push changes to repository
-    * git push origin branch_name
-
-![Screenshot](images/)
+    * `git push origin <branch_name>`
 
 ### User Interface
 
 1. click on the "source control" extension button on the left side of the window
 
-![Screenshot](images/)
+![Screenshot](images/git_extension.png)
 
 2. click on a modified file (highlighted yellow) to see the diffs between the current saved version and the last commit
     * how the changes are displayed
         * click on the file in the "source control" extension
         * The old committed file is on the left, and the saved new version is on the right
         * Deletions are highlighted in red and additions are highlighted in green
+        * these diffs work for both python scripts and IPython nobebooks
     * Tip
         * I find it helpful to double check the diffs before staging to ensure there isn't anything unexpected (from say a cat on your keyboard...)
     * Python Script
     * Ipython Notebook
 
-![Screenshot](images/)
-
-![Screenshot](images/)
+![Screenshot](images/diffs_Dockerfile.png)
 
 3. Stage file
     * click on the "+" button to the right of a file to stage changes
 
-![Screenshot](images/)
+![Screenshot](images/stage_changes_ui.png)
 
 4. commiting changes
     * after staging 
