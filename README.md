@@ -1,13 +1,22 @@
 # VSCode Demo
 
-VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of my colleagues to code much more efficiently. It minimizes the need to have many different programs and tabs open while developing code. In this demo I will describe a set of VSCode features that are very useful to any developer, and have been particularly useful to me as a Data Scientist. 
+VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of my colleagues to code much more efficiently. It minimizes the need to have many different programs open while developing code, and offers powerful extensions. In this demo I will describe a set of VSCode features that are useful to any developer, and have been particularly useful to me as a Data Scientist. 
 
-## Glossary
+### After following along with the demo you will be able to:
+* Configure VSCode to get started developing code
+* Manage a python environment using conda or docker
+* Run python scripts and ipython notebooks
+* debug your code
+* Use the source control extension
+* use the SQLite extension
+* Use Github Copilot
+
+## Table of Contents
 
 * Prerequisites
 * Environment Management
     * Conda
-    * Attaching VSCode Directly to Docker Container
+    * Attaching VSCode Directly to a Docker Container
 * Python
     * Running Python Script
     * Running IPython Notebook
@@ -60,11 +69,11 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 1. Open VSCode
 2. Open a terminal
     * A terminal can be spawned by dragging from the bottom of the VSCode screen
-2. Create Conda Environment
+3. Create Conda Environment
     * `conda create --name vscode_demo python=3.10.12`
-3. Activate the environment
+4. Activate the environment
     * `conda activate vscode_demo`
-4. Install the necessary python libraries
+5. Install the necessary python libraries
     * `conda install -c anaconda jupyter=1.0.0`
     * `conda install -c anaconda scikit-learn=1.3.0`
     * `conda install -c anaconda sqlalchemy=1.4.39`
@@ -81,7 +90,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 ### Option 2: Attaching VSCode Directly to Docker Container
 
-#### Attach VSCode to Container Initial Setup
+#### Initial Setup
 
 1. Open VSCode
 2. Open a terminal
@@ -101,7 +110,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
         * `git config user.name "****** ******"`
     * if necessary set up your ssh-keychains again
 
-#### Attach VSCode to Container After Setup
+#### After Setup
 
 1. Attach VSCode to container
     * click on the docker extension button 
@@ -180,7 +189,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Click on the debugger extension button on the left of the window
     * Add a break point in your code and this will open some additional "BREAKPOINTS" options at the bottom of the debugger window
         * to the left of the numbers in the .py file click and a red circle will appear
-    * Make sure "Uncaught Exceptions" and "User Uncaught Exceptions" are checked
+    * Make sure "Raised Exceptions" and "Uncaught Exceptions" are checked
     * Then remove the breakpoints you used to bring up the breakpoint options (if you don't want the code to stop there)
 
 ![Screenshot](images/breakpoint_options.png)
@@ -217,7 +226,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 ![Screenshot](images/debug_consol.png)
 
-![Screenshot](images/stop_debugger)
+![Screenshot](images/stop_debugger.png)
 
 ### Debugging IPython Notebook
 
@@ -243,7 +252,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 
 1. you can do all of your normal git commands through the terminal at the bottom of the screen
 2. stage file
-    * `git commit <file_name>`
+    * `git add <file_name>`
 3. commiting changes
     * `git commit -m <commit message>`
 4. push changes to repository
@@ -284,30 +293,28 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * click the three dots at the top of the source control extension
     * select the "push" button
 
-![Screenshot](images/commit_changes_ui.png)
-
 ![Screenshot](images/push_changes_ui.png)
 
 ## SQL
 
 ### Set up SQL DB
 
-1. download sqlite
+1. Download SQLite
     * Download the SQLite extension in VSCode
     * command+shift+p search and select "Developer: Reload Window"
     * Open sql/mysql.sql
-    * if another db (anything other than SQLite) is selected in the bottom right of VSCode you may need to click that and select SQLite
+    * If another db (anything other than SQLite) is selected in the bottom right of VSCode you may need to click that and select SQLite
 
 ![Screenshot](images/sqlite_select.png)
 
 2. Create a table in the SQLite DB
     * Create the table by selecting the first command in mysql.sql, right click, and select "Run Selected Query"
         * It will prompt you to choose a DB 
-            * choose the db from the repo "mydb.db"
-        * this creates an empty table named "example_table" in the SQLite DB
-    * populate the table by selecting the second command in mysql.sql, right click and select "Run Selected Query"
+            * Choose the db from the repo "mydb.db"
+        * This creates an empty table named "example_table" in the SQLite DB
+    * Populate the table by selecting the second command in mysql.sql, right click and select "Run Selected Query"
 3. Query the table we created
-    * query our table by highlighting the third command in mysql.sql, right clicking, and selecting "Run Selected Query"
+    * Query our table by highlighting the third command in mysql.sql, right clicking, and selecting "Run Selected Query"
 
 ![Screenshot](images/sql_query.png)
 
@@ -342,27 +349,27 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 ### Copilot Examples
 
 1. Writing code from a comment
-    * to recreate the results open copilot/copilot_example.py
-        * delete the code under the comment
-        * put cursor to the right of the comment, hit enter, repeatedly hit tab until the function is complete
+    * To recreate the results open copilot/copilot_example.py
+        * Delete the code under the comment
+        * Put cursor to the right of the comment, hit enter, repeatedly hit tab until the function is complete
 
 ![Screenshot](images/function_from_comment.png)
 
 ![Screenshot](images/df_manipulation_from_comment.png)
 
 2. Automatically generate docstrings
-    * to recreate the results open copilot/copilot_example.py
-        * delete the docstring in the "add_inputs" function
-        * put cursor to the right of the first line in the function, hit enter, repeatedly hit tab until the function is complete
+    * To recreate the results open copilot/copilot_example.py
+        * Delete the docstring in the "add_inputs" function
+        * Put cursor to the right of the first line in the function, hit enter, repeatedly hit tab until the function is complete
 
 ![Screenshot](images/generate_docstring_from_function.png)
 
 3. Translating code in GitHub Copilot Labs
-    * example translating pandas to sql
-    * to recreate the translation open copilot/copilot_example.py
-        * highlight the section of code where a dataframe is sorted
-        * click on the GitHub Copilot Labs extension
-        * under the "LANGUAGE TRANSLATION" tab select "sql" for "Translate code into", then select the Ask Copilot button
+    * Example translating pandas to sql
+    * To recreate the translation open copilot/copilot_example.py
+        * Highlight the section of code where a dataframe is sorted
+        * Click on the GitHub Copilot Labs extension
+        * Under the "LANGUAGE TRANSLATION" tab select "sql" for "Translate code into", then select the Ask Copilot button
 
 ![Screenshot](images/code_translation.png)
 
@@ -376,13 +383,13 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * Hold down command and then click a function
         * This will open the source file of that function
 3. Jump back to the previous location in the editor
-    * if you have jumpted to a function you can quickly jump back
-        * you can click go -> back 
-        * or you can press "ctr -"
+    * If you have jumpted to a function you can quickly jump back
+        * You can click go -> back 
+        * Or you can press "ctr -"
 4. Type in multiple places at once
-    * type on multiple lines (aligned)
+    * Type on multiple lines (aligned)
         * "option+command+uparrow(or downarrow)"
-    * type on multiple lines (not aligned)
+    * Type on multiple lines (not aligned)
         * "option+click"
 
 ![Screenshot](images/write_multiple_lines_aligned.png)
