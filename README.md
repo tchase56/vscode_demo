@@ -104,7 +104,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * open the containers tab
     * right click on vscode_demo_container and select "attach visual studio code"
 6. Install the necessary VSCode extensions in the container (same as above)
-7. Reconfigure github inside of container
+7. Reconfigure github inside of container (this is needed for interfacing with GitHub from the container)
     * git config
         * `git config user.email "*****"`
         * `git config user.name "****** ******"`
@@ -116,6 +116,10 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
     * click on the docker extension button 
     * open the containers tab
     * right click on vscode_demo_container and select "attach visual studio code"
+
+### Environment Name for this Demo
+
+It is worth noting that for this demo if you are using the Conda environment workflow your environment will be named vscode_demo. However, if you are using the container environment workflow the default environment is the correct environment. Both python versions are Python 3.10.12. 
 
 ## Python
 
@@ -131,7 +135,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 2. Make sure VSCode is using the correct form of Python
     * Open .py file 
         * ensure the language Python is chosen in the lower right hand corner of the screen
-        * Click on the python version button in the lower right hand corner of the screen and ensure "vscode_demo" is selected
+        * Click on the python version button in the lower right hand corner of the screen and ensure correct environment is selected
 
 ![Screenshot](images/python_version_script.png)
 
@@ -162,7 +166,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 ![Screenshot](images/file_explorer_ipython_notebook.png)
 
 2. Make sure Ipython Notebook is using the correct form of Python (Conda 3.10.12)
-    * Click on the python version button in the top right corner of VSCode and select "vscode_demo"
+    * Click on the python version button in the top right corner of VSCode and select the correct environment
         * Every notebook has a python environment associated with it
 
 ![Screenshot](images/set_ipython_notebook_env.png)
@@ -191,6 +195,7 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
         * to the left of the numbers in the .py file click and a red circle will appear
     * Make sure "Raised Exceptions" and "Uncaught Exceptions" are checked
     * Then remove the breakpoints you used to bring up the breakpoint options (if you don't want the code to stop there)
+    * If there is a spot in your code that you want the debugger to stop at so you can analyze the variables in memory at that point, then add a break point there
 
 ![Screenshot](images/breakpoint_options.png)
 
@@ -216,6 +221,9 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
         * Select the DEBUG CONSOLE at the bottom of the screen next to the TERMINAL button 
         * here you have the ability to query the variables in the namespace of this break point
             * Typing "actual" returns the "actual" argument to the "eval_metrics" function at the time of the break point
+    * CALL STACK tab in the debugger extension
+        * Often with modular code you will have functions calling functions calling functions
+        * By clicking the options under the CALL STACK tab you can navigate that hierarchy that contains your bug
     * Stop debugger
         * Click the stop button at the top of the screen
 
@@ -225,6 +233,8 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 ![Screenshot](images/data_viewer.png)
 
 ![Screenshot](images/debug_consol.png)
+
+![Screenshot](images/debug_call_stack.png)
 
 ![Screenshot](images/stop_debugger.png)
 
