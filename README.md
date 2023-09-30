@@ -47,10 +47,9 @@ VSCode is a very powerful IDE owned by Microsoft. It has helped me and many of m
 4. Install VSCode Extensions using extensions button
     * Python Section 
         * Python
-        * HTML Preview
     * For Docker Environment Option
         * Docker
-        * Remote-Containers
+        * Dev Containers
     * For SQL
         * SQLite 
         * SQLite Viewer
@@ -123,6 +122,8 @@ It is worth noting that for this demo if you are using the Conda environment wor
 
 ## Python
 
+Both the python script and the ipython notebook train a linear regression model that takes two hyperparameters: alpha and l1_ratio. It then displays various performance metrics for both the training set and the test set.
+
 ### Running Python Script
 
 1. Open python/python_script.py from the explorer
@@ -165,7 +166,7 @@ It is worth noting that for this demo if you are using the Conda environment wor
 
 ![Screenshot](images/file_explorer_ipython_notebook.png)
 
-2. Make sure Ipython Notebook is using the correct form of Python (Conda 3.10.12)
+2. Make sure Ipython Notebook is using the correct form of Python
     * Click on the python version button in the top right corner of VSCode and select the correct environment
         * Every notebook has a python environment associated with it
 
@@ -191,11 +192,10 @@ It is worth noting that for this demo if you are using the Conda environment wor
 
 1. Debugger settings
     * Click on the debugger extension button on the left of the window
-    * Add a break point in your code and this will open some additional "BREAKPOINTS" options at the bottom of the debugger window
-        * to the left of the numbers in the .py file click and a red circle will appear
-    * Make sure "Raised Exceptions" and "Uncaught Exceptions" are checked
-    * Then remove the breakpoints you used to bring up the breakpoint options (if you don't want the code to stop there)
+    * Make sure "Uncaught Exceptions" "User Uncaught Exceptions are checked
+        * You may need to run the debugger once before the check boxes show up under the breakpoints tab
     * If there is a spot in your code that you want the debugger to stop at so you can analyze the variables in memory at that point, then add a break point there
+        * You can click to the left of a line in the code to add a break point, designated by a red circle
 
 ![Screenshot](images/breakpoint_options.png)
 
@@ -240,7 +240,7 @@ It is worth noting that for this demo if you are using the Conda environment wor
 
 ### Debugging IPython Notebook
 
-1. Debugger settings
+1. Debugger Settings
     * follow the instructions for "debugger settings" in the "Debugging Python Script" section
 2. Catching a bug placed in imported function
     * Create bug to track
@@ -282,8 +282,6 @@ It is worth noting that for this demo if you are using the Conda environment wor
         * these diffs work for both python scripts and IPython nobebooks
     * Tip
         * I find it helpful to double check the diffs before staging to ensure there isn't anything unexpected (from say a cat on your keyboard...)
-    * Python Script
-    * Ipython Notebook
 
 ![Screenshot](images/diffs_Dockerfile.png)
 
@@ -313,14 +311,14 @@ It is worth noting that for this demo if you are using the Conda environment wor
     * Download the SQLite extension in VSCode
     * command+shift+p search and select "Developer: Reload Window"
     * Open sql/mysql.sql
-    * If another db (anything other than SQLite) is selected in the bottom right of VSCode you may need to click that and select SQLite
+    * In the bottom right of VSCode you may need to clickand select SQLite and mydb.db
 
 ![Screenshot](images/sqlite_select.png)
 
 2. Create a table in the SQLite DB
     * Create the table by selecting the first command in mysql.sql, right click, and select "Run Selected Query"
-        * It will prompt you to choose a DB 
-            * Choose the db from the repo "mydb.db"
+        * It may prompt you to choose a DB 
+            * If so choose the db from the repo "mydb.db"
         * This creates an empty table named "example_table" in the SQLite DB
     * Populate the table by selecting the second command in mysql.sql, right click and select "Run Selected Query"
 3. Query the table we created
@@ -355,6 +353,8 @@ It is worth noting that for this demo if you are using the Conda environment wor
     * If you are worried about incorporating public code into your repo I suggest not allowing suggestions matching public code
     * If you are worried about GitHub using your code snippets for training models I suggest you not allow GitHub to use code snippets for product improvement
 4. Install the GitHub Copilot Labs Extension
+5. If Copilot and/or Copilot Labs is not signed in properly VSCode may prompt you to login
+    * If Copilot and/or Copilot Labs isn't connected and VSCode is not prompting you to connect close and re-open the VSCode window
 
 ### Copilot Examples
 
@@ -371,6 +371,7 @@ It is worth noting that for this demo if you are using the Conda environment wor
     * To recreate the results open copilot/copilot_example.py
         * Delete the docstring in the "add_inputs" function
         * Put cursor to the right of the first line in the function, hit enter, repeatedly hit tab until the function is complete
+        * If the autocompletion isn't going in the direction you want seed it by starting to type what you want and it will update
 
 ![Screenshot](images/generate_docstring_from_function.png)
 
